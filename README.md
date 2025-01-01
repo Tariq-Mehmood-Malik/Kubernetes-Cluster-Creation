@@ -185,5 +185,129 @@ wget https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel
 
 You need to edit the kube-flannel-ds-amd64 DaemonSet, adding the cli option - --iface=enp0s8 under the kube-flannel container spec.
 
+---
+
+
+The error message you are encountering:
+
+```
+Failed to check br_netfilter: stat /proc/sys/net/bridge/bridge-nf-call-iptables: no such file or directory
+```
+
+indicates that the system is missing a kernel parameter that is required for Kubernetes to properly handle network traffic between containers and across bridges. Specifically, the missing parameter is related to **`br_netfilter`**, which is required for the Kubernetes network model to function correctly.
+
+### What is `br_netfilter`?
+
+- `br_netfilter` is a kernel module that allows iptables to filter traffic on Linux bridges (used for container networking).
+- Kubernetes requires this to ensure that network traffic between containers can be correctly filtered by iptables.
+
+### Solution: Enable `br_netfilter` Kernel Module
+
+To resolve this, you need to load the `br_netfilter` kernel module and enable the necessary sysctl settings. Here's how you can do this:
+
+#### 1. **Load the `br_netfilter` Kernel Module**
+
+You need to ensure that the `br_netfilter` kernel module is loaded on the node. This is required for Kubernetes to handle traffic correctly when using Linux bridges for networking.
+
+To load the `br_netfilter` module, run the following command:
+
+```bash
+sudo modprobe br_netfilter
+```
+
+This will load the module into the kernel. If you encounter an error that the module is not found, you may need to install the appropriate kernel headers for your distribution.
+
+#### 2. **Set the Required Sysctl Parameters**
+
+Once the kernel module is loaded, you need to set the appropriate sysctl parameters to enable Kubernetes networking.
+
+Run the following commands to enable the `br_netfilter` settings:
+
+```bash
+sudo sysctl -w net.bridge.bridge-nf-call-iptables=1
+sudo sysctl -w net.bridge.bridge-nf-call-ip6tables=1
+```
+
+These settings tell the Linux kernel to use iptables to filter traffic on bridges, which is necessary for Kubernetes to work correctly with container networking.
+
+#### 3. **Persist the Settings Across Reboots**
+
+To ensure that these settings persist across reboots, you can add them to the sysctl configuration file.
+
+1. Open the sysctl configuration file for editing:
+
+   ```bash
+   sudo nano /etc/sysctl.conf
+   ```
+
+2. Add the following lines to the end of the file:
+
+   ```bash
+   net.bridge.bridge-nf-call-iptables=1
+   net.bridge.bridge-nf-call-ip6tables=1
+   ```
+
+3. Save and exit the file.
+
+4. Apply the changes immediately:
+
+   ```bash
+   sudo sysctl -p
+   ```
+
+#### 4. **Verify the Settings**
+
+To verify that the settings have been applied correctly, you can check the values of the sysctl parameters:
+
+```bash
+sysctl net.bridge.bridge-nf-call-iptables
+sysctl net.bridge.bridge-nf-call-ip6tables
+```
+
+Both of these should return `1` if they are set correctly.
+
+#### 5. **Restart Docker and Kubernetes Services**
+
+After making these changes, it’s a good idea to restart Docker and Kubernetes services to ensure that the changes take effect and to resolve any lingering issues.
+
+- Restart Docker (or container runtime):
+
+  ```bash
+  sudo systemctl restart docker
+  ```
+
+- Restart the kubelet (Kubernetes agent):
+
+  ```bash
+  sudo systemctl restart kubelet
+  ```
+
+### 6. **Check the Status of Pods**
+
+Now that the required kernel module and sysctl settings are in place, check the status of your pods to see if they are starting correctly.
+
+```bash
+kubectl get pods -n kube-system
+```
+
+If Flannel or CoreDNS pods were having issues due to this kernel setting, they should now be able to start without issues.
+
+### Summary of Steps:
+1. **Load the `br_netfilter` kernel module**: `sudo modprobe br_netfilter`
+2. **Set sysctl parameters**:
+   ```bash
+   sudo sysctl -w net.bridge.bridge-nf-call-iptables=1
+   sudo sysctl -w net.bridge.bridge-nf-call-ip6tables=1
+   ```
+3. **Persist sysctl settings** in `/etc/sysctl.conf` and apply with `sysctl -p`.
+4. **Restart Docker and Kubernetes services**.
+5. **Verify pod status** after changes.
+
+This should resolve the error related to `br_netfilter` and help the Flannel and CoreDNS pods to start successfully. Let me know if you encounter any further issues!
+
+
+[Link](https://www.fosstechnix.com/kubernetes-cluster-using-kubeadm-on-ubuntu-22/)
+
+
 
 
