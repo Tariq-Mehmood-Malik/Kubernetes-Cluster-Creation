@@ -90,6 +90,7 @@ set systemdCgroup to `true`
 Make sure to restart containerd:
 ```
 sudo systemctl restart containerd
+
 ```
 
 ---
@@ -149,18 +150,22 @@ sudo systemctl enable --now kubelet
 ---
 Initializing your control-plane node 
 
-kubeadm init --apiserver-advertise-address <ip> --pod-network-cidr 10.244.0.0/16 --cri-socket unix:///var/run/containerd/containerd.sock
-
-**Switch to root User**
+```
+sudo systemctl restart containerd
+```
+```
+kubeadm init --apiserver-advertise-address <your-node-ip> --pod-network-cidr 10.244.0.0/16
+```
+**Switch to normal User**
 
 Your Kubernetes control-plane has initialized successfully!
 
 To start using your cluster, you need to run the following as a regular user:
-
+```bash
   mkdir -p $HOME/.kube
   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
-
+```
 You should now deploy a Pod network to the cluster.
 Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
   /docs/concepts/cluster-administration/addons/
