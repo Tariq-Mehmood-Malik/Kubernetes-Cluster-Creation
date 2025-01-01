@@ -1,24 +1,28 @@
 # Kubernetes-Cluster-Creation
 
 **Before you begin** 
-- A compatible Linux host. The Kubernetes project provides generic instructions for Linux distributions based on Debian and Red Hat, and those distributions without a package manager.
-- 2 GB or more of RAM per machine (any less will leave little room for your apps).
-- 2 CPUs or more for control plane machines.
-- Full network connectivity between all machines in the cluster (public or private network is fine).
+- A compatible Linux host. (Controller)
+- 2 GB or more of RAM per machine.
+- 2 CPUs or more for control plane machines and minimum 1 for worker node.
+- Full network connectivity between all machines in the cluster.
 - Unique hostname, MAC address, and product_uuid for every node. 
 - Certain ports are open on your machines.
 
 --- 
 
-Swap configuration
-The default behavior of a kubelet is to fail to start if swap memory is detected on a node. This means that swap should either be disabled or tolerated by kubelet.
+## Install and configure prerequisites
 
-To tolerate swap, add failSwapOn: false to kubelet configuration or as a command line argument. Note: even if failSwapOn: false is provided, workloads wouldn't have swap access by default. This can be changed by setting a swapBehavior, again in the kubelet configuration file. To use swap, set a swapBehavior other than the default NoSwap setting. See Swap memory management for more details.
-To disable swap, sudo swapoff -a can be used to disable swapping temporarily. To make this change persistent across reboots, make sure swap is disabled in config files like /etc/fstab, systemd.swap, depending how it was configured on your system.
+- Switch to root
 
+### Swap configuration
+The default behavior of a kubelet is to fail to start if swap memory is detected on a node.
+
+```bash
+sudo swapoff -a 
+(crontab -l 2>/dev/null; echo "@reboot /sbin/swapoff -a") | crontab - || true
+```
 ---
 
-Install and configure prerequisites
 Network configuration
 By default, the Linux kernel does not allow IPv4 packets to be routed between interfaces. Most Kubernetes cluster networking implementations will change this setting (if needed), but some might expect the administrator to do it for them. (Some might also expect other sysctl parameters to be set, kernel modules to be loaded, etc; consult the documentation for your specific network implementation.)
 
