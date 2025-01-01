@@ -83,7 +83,7 @@ Configuring the systemd cgroup driver
 containerd config default > /etc/containerd/config.toml
 ```
 ```
-nano containerd config default > /etc/containerd/config.toml
+nano /etc/containerd/config.toml
 ```
 set systemdCgroup to `true`
 
