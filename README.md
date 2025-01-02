@@ -236,7 +236,7 @@ ip a
 sudo nano kube-flannel.yml
 ```
 
-You need to edit the kube-flannel-ds-amd64 DaemonSet, adding the cli option - --iface=enp0s8 under the kube-flannel container spec.
+You need to edit the kube-flannel-ds-amd64 DaemonSet, adding the cli option - --iface=ens18 under the kube-flannel container spec.
 
 
 ```bash
@@ -245,6 +245,13 @@ kubectl apply -f kube-flannel.yml
 
 ---
 ## Testing
+
+- Add worker nodes to pod check run following on controller node
+
+```bash
+kubectl get nodes
+```
+
 
 ```bash
 kubectl run hello-world --image=hello-world
