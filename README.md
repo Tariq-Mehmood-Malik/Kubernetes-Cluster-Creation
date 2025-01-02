@@ -222,43 +222,19 @@ You need to edit the kube-flannel-ds-amd64 DaemonSet, adding the cli option - --
 ---
 ## Testing
 
-- Create a YAML file (e.g., hello-world-deployment.yaml) to define the deployment with 3 replicas.
 ```bash
-sudo nano hello-world.yaml
-```
-
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: hello-world-deployment
-spec:
-  replicas: 3  # Number of replicas
-  selector:
-    matchLabels:
-      app: hello-world
-  template:
-    metadata:
-      labels:
-        app: hello-world
-    spec:
-      containers:
-      - name: hello-world
-        image: busybox  # Using a lightweight image for a Hello World example
-        command: ["echo", "Hello, Kubernetes!"]
-```
-
-```bash
-kubectl apply -f hello-world.yaml
-```
-
-```bash
-kubectl get deployments
+kubectl run hello-world --image=hello-world
 ```
 
 ```bash
 kubectl get pods
 ```
+
+```bash
+kubectl logs hello-world
+```
+
+
 
 [Link](https://www.fosstechnix.com/kubernetes-cluster-using-kubeadm-on-ubuntu-22/)
 
