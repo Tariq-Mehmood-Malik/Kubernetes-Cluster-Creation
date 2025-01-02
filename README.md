@@ -18,7 +18,7 @@
 The default behavior of a kubelet is to fail to start if swap memory is detected on a node.
 
 ```bash
-sudo swapoff -a 
+swapoff -a 
 (crontab -l 2>/dev/null; echo "@reboot /sbin/swapoff -a") | crontab - || true
 ```
 ---
