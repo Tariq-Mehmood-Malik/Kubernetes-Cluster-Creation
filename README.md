@@ -258,7 +258,7 @@ kubectl run hello-world --image=hello-world
 ```
 
 ```bash
-kubectl get pods
+ kubectl get pods -o wide
 ```
 
 ```bash
