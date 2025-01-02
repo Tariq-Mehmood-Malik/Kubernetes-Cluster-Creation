@@ -264,8 +264,3 @@ kubectl run hello-world --image=hello-world
 ```bash
 kubectl logs hello-world
 ```
-
-
-
-[Link](https://www.fosstechnix.com/kubernetes-cluster-using-kubeadm-on-ubuntu-22/)
-
