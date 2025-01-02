@@ -1,11 +1,11 @@
 # Kubernetes-Cluster-Creation
 
-**Before you begin** 
+### [Before you begin](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/) 
 - A compatible Linux host. (Controller)
 - 2 GB or more of RAM per machine.
 - 2 CPUs or more for control plane machines and minimum 1 for worker node.
 - Full network connectivity between all machines in the cluster.
-- Unique hostname, MAC address, and product_uuid for every node. 
+- Unique hostname, MAC address, and product_uuid for every node([For Virtual-Box(unique.md)]). 
 - Certain ports are open on your machines.
 
 --- 
