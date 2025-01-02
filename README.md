@@ -202,7 +202,7 @@ kubectl get nodes
 ## Network Addon for DNS (kube-flannel)
 
 ```bash
-kubectl get po -A
+kubectl get pods -A
 ```
 
 ```bash
