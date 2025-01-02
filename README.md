@@ -26,29 +26,28 @@ sudo swapoff -a
 ### Network configuration
 By default, the Linux kernel does not allow IPv4 packets to be routed between interfaces. Most Kubernetes cluster networking implementations will change this setting (if needed), but some might expect the administrator to do it for them. (Some might also expect other sysctl parameters to be set, kernel modules to be loaded, etc; consult the documentation for your specific network implementation.)
 
-Enable IPv4 packet forwarding
-To manually enable IPv4 packet forwarding:
-
 ```bash
 cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
 overlay
 br_netfilter
 EOF
 ```
+
 ```bash
 sudo modprobe overlay
 sudo modprobe br_netfilter
 ```
+
 ```bash
-# sysctl params required by setup, params persist across reboots
 cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
 net.bridge.bridge-nf-call-iptables  = 1
 net.bridge.bridge-nf-call-ip6tables = 1
 net.ipv4.ip_forward                 = 1
 EOF
 ```
+
+- Apply sysctl params without reboot
 ```bash
-# Apply sysctl params without reboot
 sudo sysctl --system
 ```
 
