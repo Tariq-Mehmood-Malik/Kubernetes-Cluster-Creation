@@ -173,16 +173,33 @@ sudo systemctl restart containerd
 ```bash
 kubeadm init --apiserver-advertise-address <your-node-ip> --pod-network-cidr 10.244.0.0/16
 ```
+<br><br>
 
-- **Switch to normal User**
+![01](01.png)
+
+
+<br><br>
+
+
+![02](02.png)
+
+
+<br><br>
+
 
 Your Kubernetes control-plane has initialized successfully!
 
 To start using your cluster, you need to run the following as a regular user:
+
+- **Switch to normal User**
+
 ```bash
-  mkdir -p $HOME/.kube
-  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+su <user-name>
+```
+```bash
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 You should now deploy a Pod network to the cluster.
 Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
@@ -191,7 +208,10 @@ Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
 You can now join any number of machines by running the following on each node
 as root:
 
-  kubeadm join <control-plane-host>:<control-plane-port> --token <token> --discovery-token-ca-cert-hash sha256:<hash>
+```bash
+kubeadm join 192.168.0.160:6443 --token 58iwcn.ledzkt02u731zf6g \
+	--discovery-token-ca-cert-hash sha256:c61a435cbcbded1dfeafe38fffede5b129d4f18446c45655fb79f78f093e4aa3
+```
 
 ```bash
 kubectl get nodes
