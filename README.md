@@ -217,12 +217,12 @@ kubeadm join 192.168.0.160:6443 --token 58iwcn.ledzkt02u731zf6g \
 kubectl get nodes
 ```
 
----
-## Network Addon for DNS (kube-flannel)
-
 ```bash
 kubectl get pods -A
 ```
+
+---
+## Network Addon for DNS (kube-flannel)
 
 ```bash
 wget https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
