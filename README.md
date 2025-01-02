@@ -238,6 +238,11 @@ sudo nano kube-flannel.yml
 
 You need to edit the kube-flannel-ds-amd64 DaemonSet, adding the cli option - --iface=enp0s8 under the kube-flannel container spec.
 
+
+```bash
+kubectl apply -f kube-flannel.yml
+```
+
 ---
 ## Testing
 
