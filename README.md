@@ -1,7 +1,7 @@
 # Kubernetes-Cluster-Creation
 
 ### [Before you begin](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/) 
-- A compatible Linux host. (Controller)
+- A compatible Linux host.
 - 2 GB or more of RAM per machine.
 - 2 CPUs or more for control plane machines and minimum 1 for worker node.
 - Full network connectivity between all machines in the cluster.
@@ -13,6 +13,9 @@
 ## Install and configure prerequisites
 
 - Switch to root
+```bash
+sudo -i
+```
 
 ### Swap configuration
 The default behavior of a kubelet is to fail to start if swap memory is detected on a node.
@@ -59,7 +62,7 @@ sysctl net.bridge.bridge-nf-call-ip6tables
 ```
 
 ---
-## Container Runtimes
+## [Container Runtimes](https://kubernetes.io/docs/setup/production-environment/container-runtimes/)      
 ### containerd
 - Add Docker's official GPG key:
 ```bash
@@ -85,12 +88,15 @@ sudo apt-get update
 sudo apt-get install containerd.io
 ```
 
-### Configuring the systemd cgroup driver 
+### Configuring the cgroup driver [(systemd)](https://kubernetes.io/docs/setup/production-environment/container-runtimes/#containerd) 
 
 Cgroup Drivers manage how system resources (CPU, memory, I/O) are allocated to processes via cgroups (control groups) in Linux.   
 There are two cgroup drivers available:
 - cgroupfs
 - systemd
+
+Since many modern Linux distributions use `systemd` as the init system, using it as the cgroup manager ensures better consistency across the system.
+By using `systemd`, container runtimes like Docker or containerd do not need to manage cgroups separately.
 
 
 Consider resetting the containerd configuration:  
