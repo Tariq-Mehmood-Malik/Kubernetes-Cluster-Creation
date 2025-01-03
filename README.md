@@ -106,7 +106,7 @@ containerd config default > /etc/containerd/config.toml
 ```
 nano /etc/containerd/config.toml
 ```
-set systemdCgroup to `true`
+set SystemdCgroup to `true`
 
 Make sure to restart containerd:
 ```
@@ -116,7 +116,7 @@ sudo systemctl restart containerd
 
 ---
 
-## Installing kubeadm, kubelet and kubectl
+## [Installing kubeadm, kubelet and kubectl](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#installing-kubeadm-kubelet-and-kubectl)
 
 You will install these packages on all of your machines:
 
