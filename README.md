@@ -247,7 +247,7 @@ ip a
 sudo nano kube-flannel.yml
 ```
 
-You need to edit the kube-flannel-ds-amd64 DaemonSet, adding the cli option - --iface=ens18 under the kube-flannel container spec.
+You need to edit the kube-flannel-ds-amd64 DaemonSet, adding the cli option - --iface=<your-interface> under the kube-flannel container spec.
 
 
 ```bash
