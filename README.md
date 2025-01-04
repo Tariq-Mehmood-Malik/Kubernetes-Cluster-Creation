@@ -12,12 +12,13 @@
 
 --- 
 # For All Nodes
-## Install and configure prerequisites
 
 - Switch to root
 ```bash
 sudo -i
 ```
+
+## Install and configure prerequisites
 
 ### Swap configuration
 The default behavior of a kubelet is to fail to start if swap memory is detected on a node.
@@ -26,7 +27,6 @@ The default behavior of a kubelet is to fail to start if swap memory is detected
 swapoff -a 
 (crontab -l 2>/dev/null; echo "@reboot /sbin/swapoff -a") | crontab - || true
 ```
----
 
 ### Network configuration
 By default, the Linux kernel does not allow IPv4 packets to be routed between interfaces. Most Kubernetes cluster networking implementations will change this setting (if needed), but some might expect the administrator to do it for them. (Some might also expect other sysctl parameters to be set, kernel modules to be loaded, etc; consult the documentation for your specific network implementation.)
