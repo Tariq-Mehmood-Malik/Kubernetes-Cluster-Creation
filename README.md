@@ -174,8 +174,9 @@ sudo systemctl enable --now kubelet
 **[Script for above steps](k8s-ubuntu-cluster.sh)**
 
 ---
-# For Controller Only
-## Initializing your control-plane node 
+## Cluster Creation
+## For Controller Only
+### Initializing your control-plane node 
 
 ```bash
 sudo systemctl restart containerd
