@@ -13,7 +13,7 @@
 --- 
 # For All Nodes
 
-- Switch to root
+- Switch to root (Optional)
 ```bash
 sudo -i
 ```
