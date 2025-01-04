@@ -3,11 +3,8 @@
 # Script for K8s cluster for every node with node.
 # Before running this ssh make sure you have changed your node's hostname and also configured static IP.
 
-# Switching to root user (Optinal)
-sudo -i
-
 # Disabling Swap feature on node
-swapoff -a 
+sudo swapoff -a 
 (crontab -l 2>/dev/null; echo "@reboot /sbin/swapoff -a") | crontab - || true
 
 
