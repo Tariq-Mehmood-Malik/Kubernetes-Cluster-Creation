@@ -171,6 +171,8 @@ sudo apt-mark hold kubelet kubeadm kubectl
 sudo systemctl enable --now kubelet
 ```
 
+**[Script for above steps](k8s-ubuntu-cluster.sh)**
+
 ---
 # For Controller Only
 ## Initializing your control-plane node 
