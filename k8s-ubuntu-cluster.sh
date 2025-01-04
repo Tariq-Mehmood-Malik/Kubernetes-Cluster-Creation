@@ -5,7 +5,7 @@
 
 # Disabling Swap feature on node
 sudo swapoff -a 
-(crontab -l 2>/dev/null; echo "@reboot /sbin/swapoff -a") | crontab - || true
+sudo sed -i '/\/swap.img/d' /etc/fstab
 
 
 # Setting up network parameters
