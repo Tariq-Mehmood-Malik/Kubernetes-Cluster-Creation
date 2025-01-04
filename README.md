@@ -181,7 +181,7 @@ sudo systemctl restart containerd
 ```bash
 kubeadm init --apiserver-advertise-address <your-node-ip> --pod-network-cidr 10.244.0.0/16
 ```
-<br><br>
+
 
 ![01](01.png)
 
