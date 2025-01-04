@@ -90,7 +90,7 @@ sudo apt-get update
 sudo apt-get install containerd.io
 ```
 
-### Configuring the cgroup driver [(systemd)](https://kubernetes.io/docs/setup/production-environment/container-runtimes/#containerd) 
+### Configuring the cgroup driver [(systemd)](https://kubernetes.io/docs/setup/production-environment/container-runtimes/#container-runtimes) 
 
 Cgroup Drivers manage how system resources (CPU, memory, I/O) are allocated to processes via cgroups (control groups) in Linux.   
 There are two cgroup drivers available:
