@@ -198,8 +198,7 @@ Wait for 10-15 minutes.
 ![02](02.png)
 
 
-<br><br>
-
+<br>
 
 Your Kubernetes control-plane has initialized successfully!
 
@@ -223,8 +222,8 @@ You can now join any number of machines by running the following on each node
 as root:
 
 ```bash
-kubeadm join 192.168.0.160:6443 --token 58iwcn.ledzkt02u731zf6g \
-	--discovery-token-ca-cert-hash sha256:c61a435cbcbded1dfeafe38fffede5b129d4f18446c45655fb79f78f093e4aa3
+kubeadm join <controller-ip>:6443 --token 58iwcn.ledzkt02u731zf6g \
+	--discovery-token-ca-cert-hash sha256:<value>
 ```
 
 ```bash
