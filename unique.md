@@ -2,7 +2,7 @@
 
 - Change hostname with hostnamectl:
 ```bash
-sudo hostnamectl set-hostname new-hostname
+sudo hostnamectl set-hostname <new-hostname>
 ```
 
 - Edit /etc/hostname:
@@ -17,6 +17,7 @@ Replace the existing hostname with the new one.
 sudo nano /etc/hosts
 ```
 Update the line with 127.0.1.1 to reflect the new hostname.
+
 
 - Restart the hostname service:
 ```bash
@@ -35,12 +36,13 @@ hostname
 ip a
 ```
 
-- Ubuntu and some other distributions use netplan for network configuration.
-- 
-- Edit the netplan configuration file (usually located in /etc/netplan/):
+- Ubuntu and some other distributions use netplan for network configuration.   
+- Edit the netplan configuration file (usually located in /etc/netplan/):   
 ```bash
 ls/etc/netplan/
+```
 
+```bash
 sudo nano /etc/netplan/01-netcfg.yaml
 ```
 
