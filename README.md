@@ -186,7 +186,10 @@ kubeadm init --apiserver-advertise-address <your-node-ip> --pod-network-cidr 10.
 ![01](01.png)
 
 
-<br><br>
+<br>
+
+Wait for 10-15 minutes.
+<br>
 
 
 ![02](02.png)
