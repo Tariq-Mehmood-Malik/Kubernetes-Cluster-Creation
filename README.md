@@ -118,7 +118,6 @@ sudo sed -i 's/SystemdCgroup = false/SystemdCgroup = true/' /etc/containerd/conf
 Make sure to restart containerd after changes:
 ```
 sudo systemctl restart containerd
-
 ```
 
 ---
