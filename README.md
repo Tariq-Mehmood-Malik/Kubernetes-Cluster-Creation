@@ -110,6 +110,10 @@ nano /etc/containerd/config.toml
 ```
 set SystemdCgroup to `true`
 
+```bash
+sudo sed -i 's/SystemdCgroup = false/SystemdCgroup = true/' /etc/containerd/config.toml
+```
+
 Make sure to restart containerd:
 ```
 sudo systemctl restart containerd
