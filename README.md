@@ -2,7 +2,7 @@
 
 ## [Kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/)
 
-### [Before you begin](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/) 
+### [Before you begin](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#before-you-begin) 
 - A compatible Linux host. (I am using [Ubuntu Server 24.04 LTS](https://ubuntu.com/download/server))
 - 2 GB or more of RAM per machine.
 - 2 CPUs or more for control plane machines and minimum 1 CPU for worker node.
