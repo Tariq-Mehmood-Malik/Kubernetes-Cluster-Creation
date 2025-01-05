@@ -5,7 +5,7 @@
 ### [Before you begin](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/) 
 - A compatible Linux host. [Ubuntu Server 24.04 LTS](https://ubuntu.com/download/server)
 - 2 GB or more of RAM per machine.
-- 2 CPUs or more for control plane machines and minimum 1 for worker node.
+- 2 CPUs or more for control plane machines and minimum 1 CPU for worker node.
 - Full network connectivity between all machines in the cluster. (ping test)
 - Unique hostname, MAC address, and product_uuid for every node.([Change IP & Hostname](unique.md))
 - Certain [ports](https://kubernetes.io/docs/reference/networking/ports-and-protocols/) are open on your machines.
