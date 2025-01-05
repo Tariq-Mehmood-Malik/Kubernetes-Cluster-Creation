@@ -3,10 +3,10 @@
 ## [Kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/)
 
 ### [Before you begin](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/) 
-- A compatible Linux host. [Ubuntu Server 24.04 LTS](https://ubuntu.com/download/server)
+- A compatible Linux host. (I am using [Ubuntu Server 24.04 LTS](https://ubuntu.com/download/server))
 - 2 GB or more of RAM per machine.
 - 2 CPUs or more for control plane machines and minimum 1 CPU for worker node.
-- Full network connectivity between all machines in the cluster. (ping test)
+- Full network connectivity between all machines in the cluster. (Please do ping test)
 - Unique hostname, MAC address, and product_uuid for every node.([Change IP & Hostname](unique.md))
 - Certain [ports](https://kubernetes.io/docs/reference/networking/ports-and-protocols/) are open on your machines.
 
@@ -56,7 +56,7 @@ EOF
 sudo sysctl --system
 ```
 
-Verify that net.ipv4.ip_forward is set to 1 with:
+Verification:   
 ```bash
 sysctl net.ipv4.ip_forward
 sysctl net.bridge.bridge-nf-call-iptables
@@ -100,8 +100,7 @@ There are two cgroup drivers available:
 Since many modern Linux distributions use `systemd` as the init system, using it as the cgroup manager ensures better consistency across the system.
 By using `systemd`, container runtimes like Docker or containerd do not need to manage cgroups separately.
 
-
-Consider resetting the containerd configuration:  
+Resetting the containerd configuration:  
 ```bash
 containerd config default > /etc/containerd/config.toml
 ```
@@ -110,11 +109,13 @@ nano /etc/containerd/config.toml
 ```
 set SystemdCgroup to `true`
 
+OR run this command
+
 ```bash
 sudo sed -i 's/SystemdCgroup = false/SystemdCgroup = true/' /etc/containerd/config.toml
 ```
 
-Make sure to restart containerd:
+Make sure to restart containerd after changes:
 ```
 sudo systemctl restart containerd
 
@@ -124,11 +125,11 @@ sudo systemctl restart containerd
 
 ## [Installing kubeadm, kubelet and kubectl](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#installing-kubeadm-kubelet-and-kubectl)
 
-You will install these packages on all of your machines:
+You will install these packages on all of your nodes:
 
 `kubeadm`, `kubelet`& `kubectl`
 
-These instructions are for Kubernetes v1.32.
+These instructions are for debian based Linux OS for Kubernetes v1.32.
 
 Update the apt package index and install packages needed to use the Kubernetes apt repository:   
 ```bash
@@ -149,7 +150,7 @@ Download the public signing key for the Kubernetes package repositories. The sam
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.32/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 ```
 
-Add the appropriate Kubernetes apt repository. Please note that this repository have packages only for Kubernetes 1.32; for other Kubernetes minor versions, you need to change the Kubernetes minor version in the URL to match your desired minor version (you should also check that you are reading the documentation for the version of Kubernetes that you plan to install).
+Add the appropriate Kubernetes apt repository.
 
 This overwrites any existing configuration in /etc/apt/sources.list.d/kubernetes.list
 ```bash
@@ -162,10 +163,11 @@ sudo apt-get update
 ```bash
 sudo apt-get install -y kubelet kubeadm kubectl
 ```
+Hold / pause apt to installed versions of kubernetes.   
 ```bash
 sudo apt-mark hold kubelet kubeadm kubectl
 ```
-(Optional) Enable the kubelet service before running kubeadm:
+Enable the kubelet service before running kubeadm:
 ```bash
 sudo systemctl enable --now kubelet
 ```
@@ -221,7 +223,7 @@ You can now join any number of machines by running the following on each node
 as root:
 
 ```bash
-kubeadm join <controller-ip>:6443 --token 58iwcn.ledzkt02u731zf6g \
+kubeadm join <controller-ip>:6443 --token <Token-ID> \
 	--discovery-token-ca-cert-hash sha256:<value>
 ```
 
@@ -244,12 +246,11 @@ wget https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel
 ip a
 ```
 
+If using VM as master node you need to edit the kube-flannel-ds-amd64 DaemonSet, adding the cli option - --iface=<your-interface-name> under the kube-flannel container spec.
+
 ```bash
 sudo nano kube-flannel.yml
 ```
-
-You need to edit the kube-flannel-ds-amd64 DaemonSet, adding the cli option - --iface=<your-interface> under the kube-flannel container spec.
-
 
 ```bash
 kubectl apply -f kube-flannel.yml
