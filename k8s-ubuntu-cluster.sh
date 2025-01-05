@@ -76,6 +76,6 @@ sudo apt-mark hold kubelet kubeadm kubectl
 
 sudo systemctl enable --now kubelet
 
-echo "To setup Master node initialization you can follow steps mention in following link"
+echo -e "\nTo setup Master node initialization you can follow steps mentioned in following link\n\n"
 
-echo "https://github.com/Tariq-Mehmood-Malik/Kubernetes-Cluster-Creation/blob/main/README.md#for-controller-only"
+echo -e "https://github.com/Tariq-Mehmood-Malik/Kubernetes-Cluster-Creation/blob/main/README.md#for-controller-only \n"
