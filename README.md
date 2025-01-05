@@ -174,7 +174,7 @@ sudo systemctl enable --now kubelet
 **[Script for above steps](k8s-ubuntu-cluster.sh)**
 
 ---
-## Cluster Creation
+# Cluster Creation
 ## For Controller Only
 ### Initializing your control-plane node 
 
