@@ -66,6 +66,9 @@ sysctl net.bridge.bridge-nf-call-ip6tables
 ---
 ## [Container Runtimes](https://kubernetes.io/docs/setup/production-environment/container-runtimes/)      
 ### containerd
+
+- Following commands are for Ubuntu OS only.
+  
 - Add Docker's official GPG key:
 ```bash
 sudo apt-get update
@@ -170,8 +173,6 @@ Enable the kubelet service before running kubeadm:
 ```bash
 sudo systemctl enable --now kubelet
 ```
-
-**[Script for above steps](k8s-ubuntu-cluster.sh)**
 
 ---
 # Cluster Creation
