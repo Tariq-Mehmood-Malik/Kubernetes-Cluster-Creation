@@ -7,7 +7,7 @@
 - 2 GB or more of RAM per machine.
 - 2 CPUs or more for control plane machines and minimum 1 CPU for worker node.
 - Full network connectivity between all machines in the cluster. (Please do ping test)
-- Unique hostname, MAC address, and product_uuid for every node.([Change IP & Hostname](unique.md))
+- Unique IP adress, hostname, MAC address, and product_uuid for every node.([Change IP & Hostname](unique.md))
 - Certain [ports](https://kubernetes.io/docs/reference/networking/ports-and-protocols/) are open on your machines.
 
 --- 
