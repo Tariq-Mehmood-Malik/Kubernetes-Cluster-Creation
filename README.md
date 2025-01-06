@@ -13,7 +13,7 @@
 --- 
 # For All Nodes
 
-- Switch to root (Optional)
+Switch to root (Optional)
 ```bash
 sudo -i
 ```
@@ -51,7 +51,7 @@ net.ipv4.ip_forward                 = 1
 EOF
 ```
 
-- Apply sysctl params without reboot
+Apply sysctl params without reboot
 ```bash
 sudo sysctl --system
 ```
@@ -67,9 +67,9 @@ sysctl net.bridge.bridge-nf-call-ip6tables
 ## [Container Runtimes](https://kubernetes.io/docs/setup/production-environment/container-runtimes/)      
 ### containerd
 
-- Following commands are for Ubuntu OS only.
+Following commands are for Ubuntu OS only.
   
-- Add Docker's official GPG key:
+Add Docker's official GPG key:
 ```bash
 sudo apt-get update
 sudo apt-get install ca-certificates curl
@@ -77,7 +77,7 @@ sudo install -m 0755 -d /etc/apt/keyrings
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
 sudo chmod a+r /etc/apt/keyrings/docker.asc
 ```
-- Add the repository to Apt sources:
+Add the repository to Apt sources:
 ```bash
 echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
@@ -88,7 +88,7 @@ echo \
 sudo apt-get update
 ```
 
-- To install the latest version, run:
+To install the latest version, run:
 ```bash
 sudo apt-get install containerd.io
 ```
