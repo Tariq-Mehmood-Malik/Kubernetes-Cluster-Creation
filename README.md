@@ -22,7 +22,7 @@ By the end, you’ll have a fully functional Kubernetes cluster ready for contai
 - Certain [ports](https://kubernetes.io/docs/reference/networking/ports-and-protocols/) are open on your machines.
 
 --- 
-# For All Nodes
+## For All Nodes
 
 Switch to root (Recommended)
 ```bash
