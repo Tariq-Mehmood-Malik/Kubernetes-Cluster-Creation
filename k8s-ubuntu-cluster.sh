@@ -1,11 +1,12 @@
 #!/bin/bash
 
-# Script for K8s cluster for every node with node.
+# Only for Ubuntu linux only.
+# Script for K8s installtion on every node with conatinerd.
 # Before running this ssh make sure you have changed your node's hostname and also configured static IP.
 
 # Disabling Swap feature on node
 sudo swapoff -a 
-sudo sed -i '/\/swap.img/d' /etc/fstab
+sudo sed -i '/swap/s/^/#/' /etc/fstab
 
 
 # Setting up network parameters
@@ -27,11 +28,7 @@ EOF
 sudo sysctl --system
 
 
-# Installing containerd (for cintainer creation)
-
-# If the directory `/etc/apt/keyrings` does not exist, it should be created before the curl command, read the note below.
-# sudo mkdir -p -m 755 /etc/apt/keyrings
-
+# Installing containerd (for container creation)
 
 sudo apt-get update
 sudo apt-get install ca-certificates curl
@@ -76,6 +73,9 @@ sudo apt-mark hold kubelet kubeadm kubectl
 
 sudo systemctl enable --now kubelet
 
-echo -e "\nTo setup Master node initialization you can follow steps mentioned in following link\n\n"
+
+
+
+echo -e "\nTo setup Master node for cluster creation you can follow steps mentioned in following link\n\n"
 
 echo -e "https://github.com/Tariq-Mehmood-Malik/Kubernetes-Cluster-Creation/blob/main/README.md#for-controller-only \n"
