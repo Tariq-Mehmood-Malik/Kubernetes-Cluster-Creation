@@ -263,8 +263,7 @@ Why we need addon.
 kubectl get pods -A
 ```
 
-We are using [Flannel](https://kubernetes.io/docs/concepts/cluster-administration/addons/).   
-It is networking plugin for Kubernetes which provides an overlay network for pods to communicate with each other across different nodes in a cluster.
+We are using [Flannel](https://kubernetes.io/docs/concepts/cluster-administration/addons/). It is networking plugin for Kubernetes which provides an overlay network for pods to communicate with each other across different nodes in a cluster.
 
 ```bash
 wget https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
