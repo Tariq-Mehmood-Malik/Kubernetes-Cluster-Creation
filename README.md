@@ -134,14 +134,14 @@ You will install these packages on all of your nodes:
 
 These instructions are for debian based Linux OS for Kubernetes v1.32.
 
-Update the apt package index and install packages needed to use the Kubernetes apt repository:   
+Update the apt package index:   
 ```bash
 sudo apt-get update
 ```
 
 <br>
 
-apt-transport-https may be a dummy package; if so, you can skip that package   
+apt-transport-https may be a dummy package; if so, you can skip that package:
 
 ```bash
 sudo apt-get install -y apt-transport-https ca-certificates curl gpg
@@ -234,6 +234,20 @@ kubectl get nodes
 
 ```bash
 kubectl get pods -A
+```
+
+## For Worker Nodes
+### Join Cluster 
+
+Switch to root:
+
+```bash
+sudo -i
+```
+
+```bash
+kubeadm join <controller-ip>:6443 --token <Token-ID> \
+	--discovery-token-ca-cert-hash sha256:<value>
 ```
 
 ---
