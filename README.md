@@ -177,7 +177,7 @@ sudo systemctl enable --now kubelet
 
 ---
 # Cluster Creation
-## For Controller Only
+
 ### Initializing your control-plane node 
 
 ```bash
@@ -232,8 +232,7 @@ kubeadm join <controller-ip>:6443 --token <Token-ID> \
 kubectl get nodes
 ```
 
-## For Worker Nodes
-### Join Cluster 
+### Join Cluster (Worker Nodes)
 
 Switch to root:
 
