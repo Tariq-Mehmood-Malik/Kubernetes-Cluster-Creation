@@ -1,6 +1,17 @@
 # Kubernetes-Cluster-Creation
 
-## [Kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/)
+**Step-by-Step Guide to Setting Up a Kubernetes Cluster with Kubeadm**
+
+This guide will show you how to set up a Kubernetes cluster using `kubeadm` on Ubuntu Server. It covers:
+
+- **Prerequisites**: System requirements and configurations.
+- **Container Runtime**: Installing and configuring `containerd`.
+- **Cluster Setup**: Installing Kubernetes components, initializing the control plane, and joining worker nodes.
+- **Networking**: Deploying the `Flannel` plugin for pod communication.
+- **Testing**: Verifying the setup with a sample pod.
+
+By the end, you’ll have a fully functional Kubernetes cluster ready for containerized applications.
+
 
 ### [Before you begin](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#before-you-begin) 
 - A compatible Linux host. (I am using [Ubuntu Server 24.04 LTS](https://ubuntu.com/download/server))
