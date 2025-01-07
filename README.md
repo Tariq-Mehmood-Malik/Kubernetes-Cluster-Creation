@@ -286,21 +286,20 @@ kubectl apply -f kube-flannel.yml
 ---
 ## Testing
 
-- Add worker nodes to pod check run following on controller node
+- Add worker nodes to cluster and run following on controller node.
 
 ```bash
 kubectl get nodes
 ```
 
-
 ```bash
-kubectl run hello-world --image=hello-world
+kubectl run hello --image=hello-world
 ```
 
 ```bash
- kubectl get pods -o wide
+kubectl get pods -o wide
 ```
 
 ```bash
-kubectl logs hello-world
+kubectl logs hello
 ```
