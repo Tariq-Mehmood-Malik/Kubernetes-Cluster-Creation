@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Only for Ubuntu linux only.
-# Script for K8s installtion on every node with conatinerd.
-# Before running this ssh make sure you have changed your node's hostname and also configured static IP.
+# Only for Ubuntu linux.
+# Script for K8s installtion on node with conatinerd.
+# Before running this ssh make sure you have changed your node's hostname and also configured static IP, as per k8s requirements.
 
 # Disabling Swap feature on node
 sudo swapoff -a 
@@ -46,6 +46,8 @@ sudo apt-get update
 
 sudo apt-get -y install containerd.io
 
+
+
 # Setting cgroup systemd for containerd
 
 sudo containerd config default > /etc/containerd/config.toml
@@ -53,6 +55,7 @@ sudo containerd config default > /etc/containerd/config.toml
 sudo sed -i 's/SystemdCgroup = false/SystemdCgroup = true/' /etc/containerd/config.toml
 
 sudo systemctl restart containerd
+
 
 
 # Installing kubeadm, kubectl & kubelet
@@ -72,7 +75,6 @@ sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 
 sudo systemctl enable --now kubelet
-
 
 
 
