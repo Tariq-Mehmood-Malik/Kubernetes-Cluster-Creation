@@ -13,7 +13,7 @@
 --- 
 # For All Nodes
 
-Switch to root (Optional)
+Switch to root (Recommended)
 ```bash
 sudo -i
 ```
@@ -232,10 +232,6 @@ kubeadm join <controller-ip>:6443 --token <Token-ID> \
 kubectl get nodes
 ```
 
-```bash
-kubectl get pods -A
-```
-
 ## For Worker Nodes
 ### Join Cluster 
 
@@ -250,8 +246,25 @@ kubeadm join <controller-ip>:6443 --token <Token-ID> \
 	--discovery-token-ca-cert-hash sha256:<value>
 ```
 
+Check nodes list on Controller.
+
+```bash
+kubectl get nodes
+```
+
 ---
 ## Network Addon for DNS (kube-flannel)
+
+A Kubernetes `addon` is a set of pre-configured resources or components that enhance the functionality of a Kubernetes cluster.
+
+Why we need addon.
+
+```bash
+kubectl get pods -A
+```
+
+We are using `[Flannel](https://kubernetes.io/docs/concepts/cluster-administration/addons/)`.   
+It is networking plugin for Kubernetes which provides an overlay network for pods to communicate with each other across different nodes in a cluster.
 
 ```bash
 wget https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
@@ -261,7 +274,7 @@ wget https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel
 ip a
 ```
 
-If using VM as master node you need to edit the kube-flannel-ds-amd64 DaemonSet, adding the cli option - --iface=<your-interface-name> under the kube-flannel container spec.
+If using VM as master node you need to edit the `kube-flannel.yml`, adding the cli option - --iface=<your-interface-name> under the kube-flannel container spec (args:).
 
 ```bash
 sudo nano kube-flannel.yml
