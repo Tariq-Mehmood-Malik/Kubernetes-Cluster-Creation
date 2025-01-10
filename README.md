@@ -2,6 +2,8 @@
 
 **Step-by-Step Guide to Setting Up a Kubernetes Cluster with Kubeadm**
 
+Kubernetes is unique because it can be customized to fit different needs, but that also makes it complicated to set up and manage.
+
 ### [Before you begin](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#before-you-begin) 
 - A compatible Linux host. (I am using [Ubuntu Server 24.04 LTS](https://ubuntu.com/download/server))
 - 2 GB or more of RAM per machine.
@@ -178,7 +180,7 @@ sudo systemctl enable --now kubelet
 ---
 # Cluster Creation
 
-### Initializing your control-plane node 
+### [Initializing your control-plane node](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/#initializing-your-control-plane-node) 
 
 ```bash
 sudo systemctl restart containerd
@@ -202,30 +204,28 @@ Wait for 10-15 minutes.
 
 <br>
 
+```text
 Your Kubernetes control-plane has initialized successfully!
 
 To start using your cluster, you need to run the following as a regular user:
 
-- **Switch to normal User**
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
-```bash
-su <user-name>
-```
-```bash
-mkdir -p $HOME/.kube
-sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-```
+Alternatively, if you are the root user, you can run:
+
+  export KUBECONFIG=/etc/kubernetes/admin.conf
+
 You should now deploy a Pod network to the cluster.
 Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
-  /docs/concepts/cluster-administration/addons/
+  https://kubernetes.io/docs/concepts/cluster-administration/addons/
 
-You can now join any number of machines by running the following on each node
-as root:
+Then you can join any number of worker nodes by running the following on each as root:
 
-```bash
 kubeadm join <controller-ip>:6443 --token <Token-ID> \
 	--discovery-token-ca-cert-hash sha256:<value>
+
 ```
 
 ```bash
