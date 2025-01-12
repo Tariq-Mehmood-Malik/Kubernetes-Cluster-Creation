@@ -272,7 +272,7 @@ wget https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel
 ip a
 ```
 
-If using VM as master node you need to edit the `kube-flannel.yml`, adding the cli option - --iface=<your-interface-name> under the kube-flannel container spec (args:).
+If using VM as master node you need to edit the `kube-flannel.yml`, adding the cli option '- --iface=<your-interface-name>' under the kube-flannel container spec (args:).
 
 ```bash
 sudo nano kube-flannel.yml
