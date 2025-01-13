@@ -2,7 +2,7 @@
 
 **Step-by-Step Guide to Setting Up a Kubernetes Cluster with Kubeadm**
 
-Kubernetes is unique because it can be customized to fit different needs, but that also makes it complicated to set up and manage.
+Kubernetes is popular because it can be customized to fit different needs, but that also makes it complicated to set up and manage.
 
 ### [Before you begin](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#before-you-begin) 
 - A compatible Linux host. (I am using [Ubuntu Server 24.04 LTS](https://ubuntu.com/download/server))
