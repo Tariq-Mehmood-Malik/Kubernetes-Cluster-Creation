@@ -198,11 +198,18 @@ sudo systemctl enable --now kubelet
 
 ### [Initializing your control-plane node](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/#initializing-your-control-plane-node) 
 
+We have already pre-configured all nodes; now we just need to create the cluster and join the nodes.   
+
+Make sure Containerd is running properly on the control-plane/Master Node.
 ```bash
+sudo systemctl status containerd
 sudo systemctl restart containerd
 ```
+
+Switch to root user and  run following in your master node with master node IP Addess.
+
 ```bash
-kubeadm init --apiserver-advertise-address <your-node-ip> --pod-network-cidr 10.244.0.0/16
+kubeadm init --apiserver-advertise-address <master-node-ip> --pod-network-cidr 10.244.0.0/16
 ```
 
 
@@ -219,6 +226,8 @@ Wait for 10-15 minutes.
 
 
 <br>
+
+You will get output similar to following with some instructions.
 
 ```text
 Your Kubernetes control-plane has initialized successfully!
@@ -250,25 +259,22 @@ kubectl get nodes
 
 ### Join Cluster (Worker Nodes)
 
-Switch to root:
 
-```bash
-sudo -i
-```
+Switch to root user and run command similar to following provided by master node.
 
 ```bash
 kubeadm join <controller-ip>:6443 --token <Token-ID> \
 	--discovery-token-ca-cert-hash sha256:<value>
 ```
 
-Check nodes list on Controller.
+Check nodes list on master node.
 
 ```bash
 kubectl get nodes
 ```
 
 ---
-## Network Addon for DNS (kube-flannel)
+## [Network Addon for DNS (kube-flannel)](https://kubernetes.io/docs/concepts/cluster-administration/addons/)
 
 A Kubernetes `addon` is a set of pre-configured resources or components that enhance the functionality of a Kubernetes cluster.
 
@@ -278,12 +284,15 @@ Why we need addon.
 kubectl get pods -A
 ```
 
-We are using [Flannel](https://kubernetes.io/docs/concepts/cluster-administration/addons/). It is networking plugin for Kubernetes which provides an overlay network for pods to communicate with each other across different nodes in a cluster.
+We are using Flannel. It is networking plugin for Kubernetes which provides an overlay network for pods to communicate with each other across different nodes in a cluster.
+
+First we need to download kube-flannel.yml.   
 
 ```bash
 wget https://github.com/flannel-io/flannel/releases/latest/download/kube-flannel.yml
 ```
 
+Check your master node ethernet interface name for IP we used in cluster creation.
 ```bash
 ip a
 ```
@@ -294,6 +303,8 @@ If using VM as master node you need to edit the `kube-flannel.yml`, adding the c
 sudo nano kube-flannel.yml
 ```
 
+After editing apply kube-flannel.yml.   
+
 ```bash
 kubectl apply -f kube-flannel.yml
 ```
@@ -301,7 +312,7 @@ kubectl apply -f kube-flannel.yml
 ---
 ## Testing
 
-- Add worker nodes to cluster and run following on controller node.
+- [Add worker nodes](#join-cluster) to cluster and run following on controller node.
 
 ```bash
 kubectl get nodes
