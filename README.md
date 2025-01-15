@@ -13,14 +13,21 @@ Kubernetes is popular because it can be customized to fit different needs, but t
 - Certain [ports](https://kubernetes.io/docs/reference/networking/ports-and-protocols/) are open on your machines.
 
 --- 
-## For All Nodes
+# For All Nodes
 
-Switch to root (Recommended)
+To create Kubernetes cluster, it's essential that all nodes meet specific configurations and prerequisites to ensure the cluster functions properly and efficiently. These prerequisites include the following:.
+
+1. [Swap configuration](#swap-configuration) 
+2. [Network configuration](#network-configuration)
+3. [Container Runtimes](#container-runtime)
+4. [kubeadm, kubelet and kubectl](#installing-kubeadm-kubelet-and-kubectl)
+
+
+It is recommended to switch to the root user before setting these prerequisites to ensure full access to the system
+
 ```bash
 sudo -i
 ```
-
-## Install and configure prerequisites
 
 ### Swap configuration
 The default behavior of a kubelet is to fail to start if swap memory is detected on a node.
@@ -66,8 +73,7 @@ sysctl net.bridge.bridge-nf-call-iptables
 sysctl net.bridge.bridge-nf-call-ip6tables
 ```
 
----
-## [Container Runtimes](https://kubernetes.io/docs/setup/production-environment/container-runtimes/)      
+## [Container Runtime](https://kubernetes.io/docs/setup/production-environment/container-runtimes/)      
 ### containerd
 
 Following commands are for Ubuntu OS only.
@@ -128,7 +134,7 @@ sudo systemctl restart containerd
 
 ---
 
-## [Installing kubeadm, kubelet and kubectl](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#installing-kubeadm-kubelet-and-kubectl)
+## [Installing kubeadm kubelet and kubectl](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#installing-kubeadm-kubelet-and-kubectl)
 
 You will install these packages on all of your nodes:
 
