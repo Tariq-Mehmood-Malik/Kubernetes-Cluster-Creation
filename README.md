@@ -29,7 +29,7 @@ It is recommended to switch to the root user before setting these prerequisites 
 sudo -i
 ```
 
-### Swap configuration
+## Swap configuration
 The default behavior of a kubelet is to fail to start if swap memory is detected on a node.
 
 ```bash
@@ -37,8 +37,10 @@ swapoff -a
 (crontab -l 2>/dev/null; echo "@reboot /sbin/swapoff -a") | crontab - || true
 ```
 
+<br>   
+ 
 
-### [Network configuration](https://kubernetes.io/docs/setup/production-environment/container-runtimes/#install-and-configure-prerequisites)   
+## [Network configuration](https://kubernetes.io/docs/setup/production-environment/container-runtimes/#install-and-configure-prerequisites)   
 By default, the Linux kernel does not allow IPv4 packets to be routed between interfaces. Most Kubernetes cluster networking implementations will change this setting (if needed), but some might expect the administrator to do it for them. (Some might also expect other sysctl parameters to be set, kernel modules to be loaded, etc; consult the documentation for your specific network implementation.)
 
 ```bash
@@ -73,7 +75,13 @@ sysctl net.bridge.bridge-nf-call-iptables
 sysctl net.bridge.bridge-nf-call-ip6tables
 ```
 
+<br>
+ 
+
 ## [Container Runtime](https://kubernetes.io/docs/setup/production-environment/container-runtimes/)      
+
+Kubernetes can supports multiple Conatiner Runtimes I am using `Containerd`.
+
 ### containerd
 
 Following commands are for Ubuntu OS only.
@@ -132,7 +140,8 @@ Make sure to restart containerd after changes:
 sudo systemctl restart containerd
 ```
 
----
+<br>
+ 
 
 ## [Installing kubeadm kubelet and kubectl](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#installing-kubeadm-kubelet-and-kubectl)
 
@@ -183,7 +192,8 @@ Enable the kubelet service before running kubeadm:
 sudo systemctl enable --now kubelet
 ```
 
----
+---   
+
 # Cluster Creation
 
 ### [Initializing your control-plane node](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/#initializing-your-control-plane-node) 
