@@ -257,10 +257,10 @@ kubeadm join <controller-ip>:6443 --token <Token-ID> \
 kubectl get nodes
 ```
 
-### Join Cluster (Worker Nodes)
+### Join Cluster
 
 
-Switch to root user and run command similar to following provided by master node.
+On worker nodesw switch to root user and run command similar to following provided by master node.
 
 ```bash
 kubeadm join <controller-ip>:6443 --token <Token-ID> \
