@@ -331,27 +331,3 @@ kubectl logs hello
 ```
 ---
 
-## Extra
-
-To use `kubectl` on worker node 1st we need to give worker access to the Kubernetes API server. The easiest way to do this is by copying the kubeconfig file from your master node to worker node.
-
-- Craete .kube on worker node user home directory.
-  ```bash
-  mkdir -p $HOME/.kube
-  ```
-
-- Share `config` file from Controller to worker.
-  Run on Controller node
-  ```bash
-  scp ~/.kube/config user@worker-node-ip:/home/user/.kube/config
-  ```
-
-- Provide right acces to file.
-  ```bash
-  sudo chown $(id -u):$(id -g) $HOME/.kube/config
-  ```
-- Testing run following command on worker node
-  ```bash
-  kubectl get nodes
-  ```
-
