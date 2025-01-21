@@ -1,8 +1,10 @@
 # Kubernetes-Cluster-Creation
 
-**Step-by-Step Guide to Setting Up a Kubernetes Cluster with Kubeadm**
+Here is a tutorial on how to create a Kubernetes cluster:
 
-Kubernetes is popular because it can be customized to fit different needs, but that also makes it complicated to set up and manage.
+[Watch the video on YouTube](https://youtube.com/playlist?list=PLHR7cgojE-jGc8YkNvVQTq8ES5h0nAccd&si=4y4ga4U_27CMhypY)
+
+**Step-by-Step Guide to Setting Up a Kubernetes Cluster with Kubeadm**
 
 ### [Before you begin](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#before-you-begin) 
 - A compatible Linux host. (I am using [Ubuntu Server 24.04 LTS](https://ubuntu.com/download/server))
