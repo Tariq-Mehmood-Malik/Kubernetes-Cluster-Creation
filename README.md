@@ -333,3 +333,7 @@ kubectl logs hello
 ```
 ---
 
+## Enable Auto-Completion for Kubectl
+
+**[Click here to see steps to Enable Auto-Completion for Kubectl in a Linux Bash Shell](https://github.com/Tariq-Mehmood-Malik/Kubernetes-Cluster-Creation/blob/main/auto-kubectl.md#enable-auto-completion-for-kubectl-in-a-linux-bash-shell)**
+
