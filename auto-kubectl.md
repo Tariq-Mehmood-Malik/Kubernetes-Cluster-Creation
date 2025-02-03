@@ -1,4 +1,4 @@
-# Enable Auto-Completion for Kubectl
+# Enable Auto-Completion for Kubectl in a Linux Bash Shell
 
 Auto-completion for `kubectl` helps speed up your workflow by suggesting commands, flags, and resource names as you type. 
 It reduces typing errors and makes it easier to discover available commands and options, improving efficiency. With auto-completion, you can quickly finish commands without needing to remember every detail.
@@ -7,8 +7,6 @@ It reduces typing errors and makes it easier to discover available commands and 
 - **Saves time**: Completes commands for you.
 - **Reduces errors**: Prevents typos in commands.
 - **Easier exploration**: Helps you discover options and resources.
-
-## Set up kubectl autocomplete in a Linux Bash Shell
 
 ### Step-1:  Install Kubectl on Linux   
 
@@ -22,7 +20,7 @@ It reduces typing errors and makes it easier to discover available commands and 
 
 ### Step-2:  Set up Auto-completion   
 
-  Check AUto-completion is installed on your node by typing `type _init_completion`. 
+  Check Auto-completion is installed on your node by typing `type _init_completion`. 
   
   ![1](auto-0.png)
   
