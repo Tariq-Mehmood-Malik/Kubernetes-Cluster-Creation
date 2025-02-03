@@ -60,7 +60,7 @@ It reduces typing errors and makes it easier to discover available commands and 
   - Type `kubectl -` followed by pressing tab twice to see the available options and verify auto-complete is working:
     
     ```bash
-    kubectl -
+    kubectl -  # Press tab twice
     ```
 
     ![2](auto-2.png)
@@ -96,7 +96,7 @@ It reduces typing errors and makes it easier to discover available commands and 
   - Type `k -` followed by pressing tab twice to see the available options and verify auto-complete is working with the alias.
     
     ```bash
-    k -
+    k -  # Press tab twice
     ```
 
   
