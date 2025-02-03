@@ -17,7 +17,7 @@ It reduces typing errors and makes it easier to discover available commands and 
 
 ### Step-2:  Set up Auto-completion   
 
-  Check AUto-completion is installed on your node by typing `_type _init_completion`. If not then follow these setps.
+  Check AUto-completion is installed on your node by typing `type _init_completion`. If not then follow these setps.
 
   - Install auto-complete by following command.
     ```bash
@@ -41,7 +41,7 @@ It reduces typing errors and makes it easier to discover available commands and 
     
   - Check Auto-completion is installed successfully.
     ```bash
-    _type _init_completion
+    type _init_completion
     ```
 
   - Type `kubectl -` followed by pressing tab twice to see the available options and verify auto-complete is working:
@@ -59,6 +59,11 @@ It reduces typing errors and makes it easier to discover available commands and 
   - Enable the alias for auto-completion.
     ```bash
     echo 'complete -o default -F __start_kubectl k' >>~/.bashrc
+    ```
+
+  - After setting up, source your .bashrc file to apply the changes:
+    ```bash
+    source ~/.bashrc
     ```
 
   - Start a new bash session: 
