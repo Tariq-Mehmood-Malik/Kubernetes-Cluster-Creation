@@ -63,7 +63,7 @@ It reduces typing errors and makes it easier to discover available commands and 
     kubectl -  # Press tab twice
     ```
 
-    ![2](auto-2.png)
+    ![2](auto-1.png)
 
  
 
