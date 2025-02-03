@@ -30,6 +30,12 @@ It reduces typing errors and makes it easier to discover available commands and 
     ```bash
     sudo apt-get install bash-completion
     ```
+    
+  - Check Auto-completion is installed successfully.
+    
+    ```bash
+    type _init_completion
+    ```
 
 ### Step-3:  Set up Auto-completion for kubectl   
 
@@ -51,12 +57,6 @@ It reduces typing errors and makes it easier to discover available commands and 
     bash
     ```
     
-  - Check Auto-completion is installed successfully.
-    
-    ```bash
-    type _init_completion
-    ```
-
   - Type `kubectl -` followed by pressing tab twice to see the available options and verify auto-complete is working:
     
     ```bash
