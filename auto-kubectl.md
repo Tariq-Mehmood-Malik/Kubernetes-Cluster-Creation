@@ -15,7 +15,7 @@ It reduces typing errors and makes it easier to discover available commands and 
   ![4](auto-3.png)
   
   
-  If not found then follow these [instructions](https://github.com/Tariq-Mehmood-Malik/Kubernetes-Cluster-Creation/tree/main?tab=readme-ov-file#installing-kubeadm-kubelet-and-kubectl) to install it.
+  If not found then click here to see [steps](https://github.com/Tariq-Mehmood-Malik/Kubernetes-Cluster-Creation/tree/main?tab=readme-ov-file#installing-kubeadm-kubelet-and-kubectl) to install it.
 
 
 ### Step-2:  Set up Auto-completion   
