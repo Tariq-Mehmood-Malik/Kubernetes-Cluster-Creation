@@ -1,17 +1,15 @@
 # Kubernetes-Cluster-Creation
 
-Here is a tutorial on how to create a Kubernetes cluster:
+You can watch my video tutorial on how to create a Kubernetes cluster: [Watch the video on YouTube](https://youtube.com/playlist?list=PLHR7cgojE-jGc8YkNvVQTq8ES5h0nAccd&si=4y4ga4U_27CMhypY)
 
-[Watch the video on YouTube](https://youtube.com/playlist?list=PLHR7cgojE-jGc8YkNvVQTq8ES5h0nAccd&si=4y4ga4U_27CMhypY)
-
-**Step-by-Step Guide to Setting Up a Kubernetes Cluster with Kubeadm**
+## Step-by-Step Guide to Setting Up a Kubernetes Cluster with Kubeadm
 
 ### [Before you begin](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#before-you-begin) 
 - A compatible Linux host. (I am using [Ubuntu Server 24.04 LTS](https://ubuntu.com/download/server))
 - 2 GB or more of RAM per machine.
 - 2 CPUs or more for control plane machines and minimum 1 CPU for worker node.
 - Full network connectivity between all machines in the cluster. (Please do ping test)
-- Unique IP adress, hostname, MAC address, and product_uuid for every node.([Change IP & Hostname](unique.md))
+- Unique IP address, hostname, MAC address, and product_uuid for every node.([Change IP & Hostname](unique.md))
 - Certain [ports](https://kubernetes.io/docs/reference/networking/ports-and-protocols/) are open on your machines.
 
 --- 
