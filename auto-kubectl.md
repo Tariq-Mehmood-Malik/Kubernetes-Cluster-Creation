@@ -26,33 +26,39 @@ It reduces typing errors and makes it easier to discover available commands and 
   
   
   - To install auto-complete execute this command.
+    
     ```bash
     sudo apt-get install bash-completion
     ```
 
-### Step-3:  Set up Auto-completion for kuubectl   
+### Step-3:  Set up Auto-completion for kubectl   
 
   - Set the kubectl completion script source for your shell sessions & for all users on the system:
+    
     ```bash
     kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null
     ```
 
   - After setting up the completion script, source your `.bashrc` file to apply the changes:
+    
     ```bash
     source ~/.bashrc
     ```
 
-  - Start a new bash session: 
+  - Start a new bash session:
+    
     ```bash
     bash
     ```
     
   - Check Auto-completion is installed successfully.
+    
     ```bash
     type _init_completion
     ```
 
   - Type `kubectl -` followed by pressing tab twice to see the available options and verify auto-complete is working:
+    
     ```bash
     kubectl -
     ```
@@ -64,26 +70,31 @@ It reduces typing errors and makes it easier to discover available commands and 
 ### Step-4: Set up an alias for kubectl and enable auto-completion 
 
   - Set an alias for kubectl as `k`.
+    
     ```bash
     echo 'alias k=kubectl' >>~/.bashrc
     ```
     
   - Enable the alias for auto-completion.
+    
     ```bash
     echo 'complete -o default -F __start_kubectl k' >>~/.bashrc
     ```
 
   - After setting up, source your .bashrc file to apply the changes:
+    
     ```bash
     source ~/.bashrc
     ```
 
-  - Start a new bash session: 
+  - Start a new bash session:
+    
     ```bash
     bash
     ```
 
   - Type `k -` followed by pressing tab twice to see the available options and verify auto-complete is working with the alias.
+    
     ```bash
     k -
     ```
