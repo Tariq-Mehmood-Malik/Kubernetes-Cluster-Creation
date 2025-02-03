@@ -12,7 +12,12 @@ It reduces typing errors and makes it easier to discover available commands and 
 
 ### Step-1:  Install Kubectl on Linux   
 
-  Make sure that `Kubectl` is pre isntalled on your master node, to check type `kubectl` in your node CLI. If not found then follow these [instructions]() to install it.
+  Make sure that `Kubectl` is pre installed on your master node, to check type `kubectl` in your node CLI. 
+  
+  ![4](auto-3.png)
+  
+  
+  If not found then follow these [instructions](https://github.com/Tariq-Mehmood-Malik/Kubernetes-Cluster-Creation/tree/main?tab=readme-ov-file#installing-kubeadm-kubelet-and-kubectl) to install it.
 
 
 ### Step-2:  Set up Auto-completion   
