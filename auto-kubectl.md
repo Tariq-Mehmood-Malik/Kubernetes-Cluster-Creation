@@ -18,26 +18,26 @@ It reduces typing errors and makes it easier to discover available commands and 
   If not found then click here to see [steps](https://github.com/Tariq-Mehmood-Malik/Kubernetes-Cluster-Creation/tree/main?tab=readme-ov-file#installing-kubeadm-kubelet-and-kubectl) to install it.
 
 
-### Step-2:  Set up Auto-completion   
+### Step-2:  Install Auto-completion   
 
   Check Auto-completion is installed on your node by typing `type _init_completion`. 
   
   ![1](auto-0.png)
   
   
-  If not then follow these setps.
-
-  - Install auto-complete by following command.
+  - To install auto-complete execute this command.
     ```bash
-    apt-get install bash-completion
+    sudo apt-get install bash-completion
     ```
+
+### Step-3:  Set up Auto-completion for kuubectl   
 
   - Set the kubectl completion script source for your shell sessions & for all users on the system:
     ```bash
     kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null
     ```
 
-  - After setting up the completion script, source your .bashrc file to apply the changes:
+  - After setting up the completion script, source your `.bashrc` file to apply the changes:
     ```bash
     source ~/.bashrc
     ```
@@ -61,7 +61,7 @@ It reduces typing errors and makes it easier to discover available commands and 
 
  
 
-### Step-3: Set up an alias for kubectl and enable auto-completion 
+### Step-4: Set up an alias for kubectl and enable auto-completion 
 
   - Set an alias for kubectl as `k`.
     ```bash
