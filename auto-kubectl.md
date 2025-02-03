@@ -17,7 +17,12 @@ It reduces typing errors and makes it easier to discover available commands and 
 
 ### Step-2:  Set up Auto-completion   
 
-  Check AUto-completion is installed on your node by typing `type _init_completion`. If not then follow these setps.
+  Check AUto-completion is installed on your node by typing `type _init_completion`. 
+  
+  ![1](auto-0.png)
+  
+  
+  If not then follow these setps.
 
   - Install auto-complete by following command.
     ```bash
@@ -49,6 +54,10 @@ It reduces typing errors and makes it easier to discover available commands and 
     kubectl -
     ```
 
+    ![2](auto-2.png)
+
+ 
+
 ### Step-3: Set up an alias for kubectl and enable auto-completion 
 
   - Set an alias for kubectl as `k`.
@@ -77,3 +86,5 @@ It reduces typing errors and makes it easier to discover available commands and 
     ```
 
   
+    ![3](auto-2.png)
+ 
