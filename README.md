@@ -331,9 +331,15 @@ kubectl logs hello
 ```
 ---
 
-## Next Steps
+## Enable Auto-Completion for Kubectl (Optinal)
 
-In Next Part, we will learn how to enable Auto-Completion for Kubectl in a linux bash shell.
+Click here to view steps to [Enable Auto-Completion for Kubectl](./auto-kubectl.md#enable-auto-completion-for-kubectl-in-a-linux-bash-shell)
 
-[Next Article: Enable Auto-Completion for Kubectl →](./auto-kubectl.md#enable-auto-completion-for-kubectl-in-a-linux-bash-shell)
+
+---
+## Next Part
+
+In our next article we will explain, Kubectl.
+
+[Next Article: Kubectl Explain →](https://github.com/Tariq-Mehmood-Malik/Kubernetes/blob/main/core.md)
 
