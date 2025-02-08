@@ -104,8 +104,4 @@ It reduces typing errors and makes it easier to discover available commands and 
 
 ---
 
-## Next Steps
 
-In Next Part, kubectl explain.
-
-[Next Article: Kubectl Explain →](core.md)
