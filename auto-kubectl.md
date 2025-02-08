@@ -101,4 +101,11 @@ It reduces typing errors and makes it easier to discover available commands and 
 
   
     ![3](auto-2.png)
- 
+
+---
+
+## Next Steps
+
+In Next Part, K8s Resource (Namespace & Pod).
+
+[Next Article: K8s Resource (Namespace & Pod) →](./resource1.md)
