@@ -106,6 +106,6 @@ It reduces typing errors and makes it easier to discover available commands and 
 
 ## Next Steps
 
-In Next Part, K8s Resource (Namespace & Pod).
+In Next Part, kubectl explain.
 
-[Next Article: K8s Resource (Namespace & Pod) →](./resource1.md)
+[Next Article: Kubectl Explain →](core.md)
