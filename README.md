@@ -29,7 +29,7 @@ It is recommended to switch to the root user before setting these prerequisites 
 sudo -i
 ```
 
-## Swap configuration
+## [Swap configuration](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#swap-configuration)
 The default behavior of a kubelet is to fail to start if swap memory is detected on a node.
 
 ```bash
